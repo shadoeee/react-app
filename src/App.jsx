@@ -1,6 +1,6 @@
 import './styles/App.css'
 import Free from './components/free';
-
+import FeaturesList from './components/FeatureList';
 
 // function App({card1}) {
 
@@ -26,13 +26,14 @@ function App({ card1 }) {
     <div className="cards-container">
       {card1.map((card) => (
         <div key={card.id} className="card">
-          <h6>{card.title}</h6>
-          <h1>{`$${card.price}/monthly`}</h1>
-          <ul>
+          <h3 className="centered-text">{card.title}</h3>
+          <h1 className="centered-text">{`$${card.price}/monthly`}</h1>
+          <ul id='list'>
             {card.features.map((feature) => (
-              <li key={feature.id}>{feature.content}</li>
+                <FeaturesList key={feature.id} feature={ feature } />
             ))}
-          </ul>
+              </ul>
+              <button>Button</button>
         </div>
       ))}
     </div>

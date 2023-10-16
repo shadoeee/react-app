@@ -63,13 +63,109 @@ const cardsData = [
     id: 2,
     title: 'Basic',
     price: 9,
-    features: ['Feature A', 'Feature B', 'Feature C'],
+    features: [
+    {
+        id: 1,
+        content: 'Single User',
+        important: true
+    },
+
+    {
+        id: 2,
+        content: '50GB Storage',
+        important: true
+    },
+
+    {
+        id: 3,
+        content: 'Unlimited Public Projects',
+        important: true
+    },
+
+    {
+        id: 4,
+        content: 'Community Access',
+        important: true
+    },
+
+    {
+        id: 5,
+        content: 'Unlimited Private Projects',
+        important: true 
+    },
+
+    {
+        id: 6,
+        content: 'Dedicated Phone Support',
+        important: true
+    },
+
+    {
+        id: 7,
+        content: 'Free Subdomain',
+        important: true
+    },
+
+    {
+        id: 8,
+        content: 'Monthly Status Reports',
+        important: false
+    }
+],
   },
   {
     id: 3,
     title: 'Plus',
     price: 49,
-    features: ['Feature X', 'Feature Y', 'Feature Z'],
+        features: [
+    {
+        id: 1,
+        content: 'Single User',
+        important: true
+    },
+
+    {
+        id: 2,
+        content: '50GB Storage',
+        important: true
+    },
+
+    {
+        id: 3,
+        content: 'Unlimited Public Projects',
+        important: true
+    },
+
+    {
+        id: 4,
+        content: 'Community Access',
+        important: true
+    },
+
+    {
+        id: 5,
+        content: 'Unlimited Private Projects',
+        important: true 
+    },
+
+    {
+        id: 6,
+        content: 'Dedicated Phone Support',
+        important: true
+    },
+
+    {
+        id: 7,
+        content: 'Free Subdomain',
+        important: true
+    },
+
+    {
+        id: 8,
+        content: 'Monthly Status Reports',
+        important: true
+    }
+],
   },
 ];
 
