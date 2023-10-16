@@ -1,5 +1,4 @@
 import './styles/App.css'
-import Free from './components/free';
 import FeaturesList from './components/FeatureList';
 
 
