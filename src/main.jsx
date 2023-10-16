@@ -7,7 +7,7 @@ import App from './App.jsx'
 const cardsData = [
   {
     id: 1,
-    title: 'Free',
+    title: 'FREE',
     price: 0,
     features: [
     {
@@ -61,7 +61,7 @@ const cardsData = [
   },
   {
     id: 2,
-    title: 'Basic',
+    title: 'PLUS',
     price: 9,
     features: [
     {
@@ -115,7 +115,7 @@ const cardsData = [
   },
   {
     id: 3,
-    title: 'Plus',
+    title: 'PRO',
     price: 49,
         features: [
     {

@@ -5,11 +5,11 @@ function FeaturesList({ feature }) {
 
     if (feature.important) {
         return (
-            <li >✔️ {feature.content} </li>
+            <li >✔ {feature.content} </li>
         )
     }
   return (
-    <li >❌ {feature.content} </li>
+    <li id='listnot'>✘ {feature.content} </li>
   );
 }
 
