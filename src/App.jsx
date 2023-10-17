@@ -1,43 +1,30 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-class App extends Component {
+function App() {
 
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      count: 0,
-    }
+  const [counter, setCounter] = useState(0);
+
+  function handleAdd() {
+    setCounter(counter + 1);
   }
 
-  increment = () => {
-    this.setState({
-      count: this.state.count + 1,
-    })
+  function handleSub() {
+    setCounter(counter - 1);
   }
 
-   decrement = () => {
-    this.setState({
-      count: this.state.count - 1,
-    })
-   }
-  
-   reset = () => {
-    this.setState({
-      count: 0,
-    })
+  function handleReset() {
+    setCounter(0);
   }
 
-  render() {
-    return (
-      <div>
-        <p>Count: { this.state.count }</p>
-        <button onClick={this.increment}>Increment</button>
-        <button onClick={this.decrement}>Decrement</button>
-        <button onClick={this.reset}>Reset</button>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <p>Number: {counter}</p>
+      <button onClick={handleAdd}>Add</button>
+      <button onClick={handleSub}>Sub</button>
+      <button onClick={handleReset}>Reset</button>
+    </div>
+  )
 }
 
 export default App
+
