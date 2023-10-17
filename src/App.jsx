@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ActionButton from './components/actionButton';
 
 function App() {
 
@@ -19,9 +20,9 @@ function App() {
   return (
     <div>
       <p>Number: {counter}</p>
-      <button onClick={handleAdd}>Add</button>
-      <button onClick={handleSub}>Sub</button>
-      <button onClick={handleReset}>Reset</button>
+      <ActionButton handleClick={handleAdd} name="Add"/>
+      <ActionButton handleClick={handleSub} name="Sub" />
+      <ActionButton handleClick={handleReset} name="Reset" />
     </div>
   )
 }
