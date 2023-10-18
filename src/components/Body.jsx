@@ -6,8 +6,48 @@ import CartButton from './CartButton';
 
 
 
-function Body() {
 
+function Body({ updateCartCount }) {
+
+  // Create state variables for each product
+  const [isInCart1, setIsInCart1] = useState(false);
+  const [isInCart2, setIsInCart2] = useState(false);
+  const [isInCart3, setIsInCart3] = useState(false);
+  const [isInCart4, setIsInCart4] = useState(false);
+  const [isInCart5, setIsInCart5] = useState(false);
+  const [isInCart6, setIsInCart6] = useState(false);
+  
+
+  const handleToggleCart1 = (newStatus) => {
+    setIsInCart1(newStatus);
+    updateCartCount(newStatus ? 1 : -1);
+  };
+
+  const handleToggleCart2 = (newStatus) => {
+    setIsInCart2(newStatus);
+    updateCartCount(newStatus ? 1 : -1);
+  };
+
+  const handleToggleCart3 = (newStatus) => {
+    setIsInCart3(newStatus);
+    updateCartCount(newStatus ? 1 : -1);
+  };
+
+  const handleToggleCart4 = (newStatus) => {
+    setIsInCart4(newStatus);
+    updateCartCount(newStatus ? 1 : -1);
+  };
+
+  const handleToggleCart5 = (newStatus) => {
+    setIsInCart5(newStatus);
+    updateCartCount(newStatus ? 1 : -1);
+  };
+
+  const handleToggleCart6 = (newStatus) => {
+    setIsInCart6(newStatus);
+    updateCartCount(newStatus ? 1 : -1);
+  };
+  
   
 
   return (
@@ -43,9 +83,13 @@ function Body() {
           ⭐⭐⭐⭐⭐
             </Card.Text>
             <Card.Text>
-          <span class="line-through-text">$20.00</span> $18.00
+          <span className="line-through-text">$20.00</span> $18.00
         </Card.Text>
-            <CartButton /> 
+            <CartButton
+              onToggle={handleToggleCart1}
+              isInCart={isInCart1}
+              updateCartCount={updateCartCount}
+            />
       </Card.Body>
               </Card>
               
@@ -57,11 +101,15 @@ function Body() {
         <Card.Body className="text-center">
         <Card.Title>Sale Item</Card.Title>
         <Card.Text>
-          <span class="line-through-text">$50.00</span> $25.00
+          <span className="line-through-text">$50.00</span> $25.00
             </Card.Text>
             <br></br>
             <br></br>
-        <CartButton /> 
+        <CartButton
+              onToggle={handleToggleCart2}
+              isInCart={isInCart2}
+              updateCartCount={updateCartCount}
+            />
       </Card.Body>
               </Card>
               
@@ -78,7 +126,11 @@ function Body() {
             <Card.Text>
           $40.00
         </Card.Text>
-        <CartButton /> 
+        <CartButton
+              onToggle={handleToggleCart3}
+              isInCart={isInCart3}
+              updateCartCount={updateCartCount}
+            />
       </Card.Body>
     </Card>
           
@@ -90,11 +142,15 @@ function Body() {
         <Card.Body className="text-center">
         <Card.Title>Sale Item</Card.Title>
         <Card.Text>
-          <span class="line-through-text">$50.00</span> $25.00
+          <span className="line-through-text">$50.00</span> $25.00
             </Card.Text>
             <br></br>
             <br></br>
-        <CartButton /> 
+        <CartButton
+              onToggle={handleToggleCart4}
+              isInCart={isInCart4}
+              updateCartCount={updateCartCount}
+            />
       </Card.Body>
               </Card>
               
@@ -124,9 +180,13 @@ function Body() {
           ⭐⭐⭐⭐⭐
             </Card.Text>
             <Card.Text>
-          <span class="line-through-text">$20.00</span> $18.00
+          <span className="line-through-text">$20.00</span> $18.00
         </Card.Text>
-        <CartButton /> 
+        <CartButton
+              onToggle={handleToggleCart5}
+              isInCart={isInCart5}
+              updateCartCount={updateCartCount}
+            />
       </Card.Body>
               </Card>
               
@@ -143,7 +203,11 @@ function Body() {
             <Card.Text>
           $40.00
         </Card.Text>
-        <CartButton /> 
+        <CartButton
+              onToggle={handleToggleCart6}
+              isInCart={isInCart6}
+              updateCartCount={updateCartCount}
+            />
       </Card.Body>
     </Card>
           </div>

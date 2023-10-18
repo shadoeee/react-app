@@ -6,9 +6,9 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import ShoppingPage from './ShoppingPage';
 
-function Header() {
+
+function Header({ cartCount }) {
   return (
      <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -27,7 +27,11 @@ function Header() {
               <NavDropdown.Item href="#action/3.3">New Arrivals</NavDropdown.Item>
                       </NavDropdown>
                   </Nav>
-                  <ShoppingPage />
+                  <div className='cart-button-container'>
+      <Button className='cart-button' variant="outline-dark">
+        <FontAwesomeIcon icon={faCartShopping} /> Cart <span id='number-count'>{cartCount}</span>
+      </Button>
+    </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
