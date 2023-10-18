@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import ShoppingPage from './ShoppingPage';
 
 function Header() {
   return (
@@ -26,11 +27,7 @@ function Header() {
               <NavDropdown.Item href="#action/3.3">New Arrivals</NavDropdown.Item>
                       </NavDropdown>
                   </Nav>
-                  <div className='cart-button-container'>
-            <Button className='cart-button' variant="outline-dark">
-                  <FontAwesomeIcon icon={faCartShopping} /> Cart <span id='number-count'> 0</span>
-                          </Button>
-                          </div>
+                  <ShoppingPage />
         </Navbar.Collapse>
       </Container>
     </Navbar>
