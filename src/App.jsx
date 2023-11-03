@@ -1,27 +1,39 @@
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
-import Header from './components/Header';
-import Body from './components/Body';
-import Footer from './components/Footer';
-
+import React from 'react'
+import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import './components/App.css'
+import All from './components/All';
+import Fullstack from './components/Fullstack';
+import Datascience from './components/Datascience';
+import Cyber from './components/Cyber';
+import Career from './components/Career';
 
 function App() {
-  const [cartCount, setCartCount] = useState(0);
 
-  // Function to update the cart count
-  const updateCartCount = (increment) => {
-    setCartCount(cartCount + increment);
-  };
+   const style = {
+    padding:20,
+    }
+  
 
   return (
-    <div>
-      <Header cartCount={cartCount} />
-      <Body updateCartCount={updateCartCount} />
-      <Footer />
+    <Router>
+      <div>
+        <div className="navigation-menu">
+      <Link to="/all" style={ style} className='size'>All</Link>
+      <Link to="/fullstack" style={ style} className='size'>Full Stack Development</Link>
+      <Link to="/data" style={ style} className='size'>Data Science</Link>
+      <Link to="/cyber" style={ style} className='size'>Cyber Security</Link>
+      <Link to="/career" style={ style} className='size'>Career</Link>
+     </div>
+        <Routes>
+              <Route path='/all' element={<All/>}/>
+              <Route  path='/fullstack' element={<Fullstack/>}/>
+              <Route path='/data' element={<Datascience/>}/>
+              <Route path='/cyber' element={<Cyber/>}/>
+              <Route path='/career' element={<Career/>}/>
+          </Routes>
     </div>
-  );
+    </Router>
+  )
 }
-
 
 export default App

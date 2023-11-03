@@ -1,0 +1,41 @@
+body{
+ background-color:radial-gradient(#e5e5e5,#ffff,#e5e5e5);
+}
+.card{
+    width:370px;
+padding: 10px 10px 10px 10px;
+    
+    overflow: hidden;
+}
+/* .card:hover{
+    box-shadow:5px 10px 20px 1px rgba(0,0,0,0.253);
+    padding: 0px 10px 10px 10px;
+    
+    
+} */
+#image{
+    height: 300px;
+    
+}
+#read{
+    color:rgb(65, 220, 65);
+    cursor: pointer;
+}
+@media (max-width:410px)
+{
+    .datasc{
+        display:flex;
+    }
+    .fullstack{
+        display:flex;
+    }
+    .cyber{
+        display:flex;
+    }
+    .career{
+        display:flex;
+    }
+    .all{
+        display:flex;
+    }
+}
