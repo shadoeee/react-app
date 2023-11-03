@@ -18,14 +18,14 @@ function App() {
     <Router>
       <div>
         <div className="navigation-menu">
-      <Link to="/all" style={ style} className='size'>All</Link>
+      <Link to="/" style={ style} className='size'>All</Link>
       <Link to="/fullstack" style={ style} className='size'>Full Stack Development</Link>
       <Link to="/data" style={ style} className='size'>Data Science</Link>
       <Link to="/cyber" style={ style} className='size'>Cyber Security</Link>
       <Link to="/career" style={ style} className='size'>Career</Link>
      </div>
         <Routes>
-              <Route path='/all' element={<All/>}/>
+              <Route path='/' element={<All/>}/>
               <Route  path='/fullstack' element={<Fullstack/>}/>
               <Route path='/data' element={<Datascience/>}/>
               <Route path='/cyber' element={<Cyber/>}/>
