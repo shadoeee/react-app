@@ -29,7 +29,8 @@ function App() {
               <Route  path='/fullstack' element={<Fullstack/>}/>
               <Route path='/data' element={<Datascience/>}/>
               <Route path='/cyber' element={<Cyber/>}/>
-              <Route path='/career' element={<Career/>}/>
+          <Route path='/career' element={<Career />} />
+          <Route path='*' element={<All />} />
           </Routes>
     </div>
     </Router>
