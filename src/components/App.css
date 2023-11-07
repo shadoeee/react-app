@@ -1,120 +1,42 @@
-/* Reset some default styles */
-body,
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-/* Style the Todo App container */
-.todo-app {
+.App {
   text-align: center;
-  background-color: #eaff4f;
-  padding: 20px;
-  height: 100vh;
 }
 
-.todo-list {
-    display: flex;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-/* Style the main heading */
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
-/* Style the Add Todo section */
-.add-todo {
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-.add-todo input {
-  padding: 10px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+.App-link {
+  color: #61dafb;
 }
 
-.add-todo button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.add-todo button:hover {
-  background-color: #0056b3;
-}
-
-/* Style the filter section */
-.filter {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.filter label {
-  font-size: 16px;
-  margin-right: 10px;
-}
-
-.filter select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-/* Style the Todo cards */
-.todo-card {
-  background-color: #c5a8c6;
-  border: 1px solid #000000;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 10px;
-  margin-left: 20px;    
-  height: 150px;
-  width: 25%;
-}
-
-.todo-card h2 {
-  font-size: 25px;
-  margin: 0;
-  margin-bottom: 10px;
-  margin-top: 5px;
-}
-
-.todo-card p {
-  font-size: 18px;
-  margin-top: 5px;
-
-}
-
-.todo-card button {
-  padding: 10px 10px;
-  margin-right: 5px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.todo-card button:hover {
-  background-color: #0056b3;
-}
-
-.todo-card select {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+body {
+    background-color: bisque;
 }
