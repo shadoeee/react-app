@@ -1,7 +1,7 @@
 import './components/App.css'
 import React, { useState } from "react";
-import TodoList from './TodoLIst';
 import AddToDo from './AddToDo';
+import TodoTask from './TodoTask';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -29,7 +29,7 @@ function App() {
     <div className="todo-app">
       <h1>MyTodo App</h1>
       <AddToDo addTodo={addTodo} />
-      <TodoList
+      <TodoTask
         todos={todos}
         updateTodo={updateTodo}
         deleteTodo={deleteTodo}

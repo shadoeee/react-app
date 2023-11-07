@@ -1,6 +1,6 @@
 import React from "react";
 
-function TodoList({ todos, updateTodo, deleteTodo }) {
+function TodoTask({ todos, updateTodo, deleteTodo }) {
   return (
     <div className="todo-list">
       {todos.map((todo) => (
@@ -33,4 +33,4 @@ function TodoList({ todos, updateTodo, deleteTodo }) {
   );
 }
 
-export default TodoList;
+export default TodoTask;
