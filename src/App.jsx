@@ -1,29 +1,41 @@
-import './styles/App.css'
-import FeaturesList from './components/FeatureList';
+import './components/App.css'
+import React, { useState } from "react";
+import TodoList from './TodoLIst';
+import AddToDo from './AddToDo';
 
+function App() {
+  const [todos, setTodos] = useState([]);
 
-function App({ card1 }) {
-    const cardIdWithCustomButton = 3;
+  // Add a new todo
+  const addTodo = (newTodo) => {
+    setTodos([...todos, newTodo]);
+  };
+
+  // Update a todo's status
+  const updateTodo = (id, status) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, status } : todo
+    );
+    setTodos(updatedTodos);
+  };
+
+  // Delete a todo
+  const deleteTodo = (id) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updatedTodos);
+  };
+
   return (
-    <div className="cards-container">
-      {card1.map((card) => (
-        <div key={card.id} className="card">
-          <h3 className="centered-text1">{card.title}</h3>
-          <h1 className="centered-text2">{`$${card.price}/month`}</h1>
-          <ul id='list'>
-            {card.features.map((feature) => (
-                <FeaturesList key={feature.id} feature={ feature } />
-            ))}
-              </ul>
-             {card.id === cardIdWithCustomButton ? (
-            <button className="custom-button">Button</button>
-          ) : (
-            <button className="standard-button">Button</button>
-          )}
-        </div>
-      ))}
+    <div className="todo-app">
+      <h1>MyTodo App</h1>
+      <AddToDo addTodo={addTodo} />
+      <TodoList
+        todos={todos}
+        updateTodo={updateTodo}
+        deleteTodo={deleteTodo}
+      />
     </div>
   );
 }
 
-export default App
+export default App;
