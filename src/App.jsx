@@ -1,105 +1,172 @@
-// App.js
-import React from 'react';
-import { CartProvider } from './CartContext';
-import CartPage from './components/CartPage';
-import "./components/App.css"
-const data = [
-  {
-      "id": 1,
-      "title": "iPhone 9",
-      "description": "An apple mobile which is nothing like apple",
-      "price": 549,
-      "discountPercentage": 12.96,
-      "rating": 4.69,
-      "stock": 94,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "images": [
-          "https://i.dummyjson.com/data/products/1/1.jpg",
-          "https://i.dummyjson.com/data/products/1/2.jpg",
-          "https://i.dummyjson.com/data/products/1/3.jpg",
-          "https://i.dummyjson.com/data/products/1/4.jpg",
-          "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-      ]
-  },
-  {
-      "id": 2,
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "discountPercentage": 17.94,
-      "rating": 4.44,
-      "stock": 34,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-      "images": [
-          "https://i.dummyjson.com/data/products/2/1.jpg",
-          "https://i.dummyjson.com/data/products/2/2.jpg",
-          "https://i.dummyjson.com/data/products/2/3.jpg",
-          "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-      ]
-  },
-  {
-      "id": 3,
-      "title": "Samsung Universe 9",
-      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-      "price": 1249,
-      "discountPercentage": 15.46,
-      "rating": 4.09,
-      "stock": 36,
-      "brand": "Samsung",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-      "images": [
-          "https://i.dummyjson.com/data/products/3/1.jpg"
-      ]
-  },
-  {
-      "id": 4,
-      "title": "OPPOF19",
-      "description": "OPPO F19 is officially announced on April 2021.",
-      "price": 280,
-      "discountPercentage": 17.91,
-      "rating": 4.3,
-      "stock": 123,
-      "brand": "OPPO",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
-      "images": [
-          "https://i.dummyjson.com/data/products/4/1.jpg",
-          "https://i.dummyjson.com/data/products/4/2.jpg",
-          "https://i.dummyjson.com/data/products/4/3.jpg",
-          "https://i.dummyjson.com/data/products/4/4.jpg",
-          "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
-      ]
-  },
-  {
-      "id": 5,
-      "title": "Huawei P30",
-      "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
-      "price": 499,
-      "discountPercentage": 10.58,
-      "rating": 4.09,
-      "stock": 32,
-      "brand": "Huawei",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
-      "images": [
-          "https://i.dummyjson.com/data/products/5/1.jpg",
-          "https://i.dummyjson.com/data/products/5/2.jpg",
-          "https://i.dummyjson.com/data/products/5/3.jpg"
-      ]
-  }
-] 
+import React, { Fragment, useState } from "react";
+import { nanoid } from "nanoid";
 
-function App() {
+import data from "./mock-data.json";
+import "./components/App.css";
+import EditableRow from "./components/EditableRow";
+import ReadOnlyRow from "./components/ReadonlyRow";
+
+const App = () => {
+  const [contacts, setContacts] = useState(data);
+  const [addFormData, setAddFormData] = useState({
+    fullName: "",
+    address: "",
+    phoneNumber: "",
+    email: "",
+  });
+  const [editFormData, setEditFormData] = useState({
+    fullName: "",
+    address: "",
+    phoneNumber: "",
+    email: "",
+  });
+  const [editContactId, setEditContactId] = useState(null);
+
+  const handleAddFormChange = (event) => {
+    event.preventDefault();
+    const fieldName = event.target.getAttribute("name");
+    const fieldValue = event.target.value;
+    const newFormData = { ...addFormData, [fieldName]: fieldValue };
+    setAddFormData(newFormData);
+  };
+
+  const handleEditFormChange = (event) => {
+    event.preventDefault();
+    const fieldName = event.target.getAttribute("name");
+    const fieldValue = event.target.value;
+    const newFormData = { ...editFormData, [fieldName]: fieldValue };
+    setEditFormData(newFormData);
+  };
+
+  const handleAddFormSubmit = (event) => {
+    event.preventDefault();
+    const newContact = {
+      id: nanoid(),
+      fullName: addFormData.fullName,
+      address: addFormData.address,
+      phoneNumber: addFormData.phoneNumber,
+      email: addFormData.email,
+    };
+    const newContacts = [...contacts, newContact];
+    setContacts(newContacts);
+  };
+
+  const handleEditFormSubmit = (event) => {
+    event.preventDefault();
+    const editedContact = {
+      id: editContactId,
+      fullName: editFormData.fullName,
+      address: editFormData.address,
+      phoneNumber: editFormData.phoneNumber,
+      email: editFormData.email,
+    };
+    const newContacts = contacts.map((contact) =>
+      contact.id === editContactId ? editedContact : contact
+    );
+    setContacts(newContacts);
+      setEditContactId(null);
+      
+      setAddFormData({
+    fullName: "",
+    address: "",
+    phoneNumber: "",
+    email: "",
+  });
+    };
+    
+    
+
+  const handleEditClick = (event, contact) => {
+    event.preventDefault();
+    setEditContactId(contact.id);
+    const formValues = {
+      fullName: contact.fullName,
+      address: contact.address,
+      phoneNumber: contact.phoneNumber,
+      email: contact.email,
+    };
+    setEditFormData(formValues);
+  };
+
+  const handleCancelClick = () => {
+    setEditContactId(null);
+  };
+
+  const handleDeleteClick = (contactId) => {
+    const newContacts = contacts.filter((contact) => contact.id !== contactId);
+    setContacts(newContacts);
+  };
+
   return (
-    <CartProvider >
-      <CartPage data={data} />
-    </CartProvider>
+    <div className="app-container">
+      <form onSubmit={handleEditFormSubmit}>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Phone Number</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {contacts.map((contact) => (
+              <Fragment key={contact.id}>
+                {editContactId === contact.id ? (
+                  <EditableRow
+                    key={contact.id}
+                    editFormData={editFormData}
+                    handleEditFormChange={handleEditFormChange}
+                    handleCancelClick={handleCancelClick}
+                  />
+                ) : (
+                  <ReadOnlyRow
+                    key={contact.id}
+                    contact={contact}
+                    handleEditClick={handleEditClick}
+                    handleDeleteClick={handleDeleteClick}
+                  />
+                )}
+              </Fragment>
+            ))}
+          </tbody>
+        </table>
+      </form>
+      <h2>Add a Contact</h2>
+      <form onSubmit={handleAddFormSubmit}>
+        <input
+          type="text"
+          name="fullName"
+          required
+          placeholder="Enter a name..."
+          onChange={handleAddFormChange}
+        />
+        <input
+          type="text"
+          name="address"
+          required
+          placeholder="Enter an address..."
+          onChange={handleAddFormChange}
+        />
+        <input
+          type="text"
+          name="phoneNumber"
+          required
+          placeholder="Enter a phone number..."
+          onChange={handleAddFormChange}
+        />
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="Enter an email..."
+          onChange={handleAddFormChange}
+        />
+        <button type="submit">Add</button>
+      </form>
+    </div>
   );
-}
+};
 
 export default App;
